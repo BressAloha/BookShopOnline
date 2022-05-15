@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mypro.book.mapper.BookMapper">
+    <!--    public Account getAcct(Long id); -->
+    <select id="getBook" resultType="com.mypro.book.pojo.Book">
+        select * from  t_book where  id=#{id}
+    </select>
+    <!--    -->
+    <select id="getBookList" resultType="com.mypro.book.pojo.Book">
+        select * from t_book limit #{page},5
+    </select>
+    <select id="getBookCount" resultType="int">
+        select count(*) from t_book;
+    </select>
+
+</mapper>

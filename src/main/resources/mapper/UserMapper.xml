@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mypro.book.mapper.UserMapper">
+
+    <!--    public Account getAcct(Long id); -->
+    <select id="getUser" resultType="com.mypro.book.pojo.User" parameterType="map">
+        select * from  t_user where username = #{username} and password = #{password}
+    </select>
+    <select id="addUser" parameterType="com.mypro.book.pojo.User">
+        insert into t_user(username,password,email,role) values(#{username},#{password},#{email},#{role})
+    </select>
+    <!--    -->
+    <select id="delUser" parameterType="com.mypro.book.pojo.User">
+        delete from t_user where username = #{username}
+    </select>
+    <select id="getcountUser" resultType="int">
+        select count(*) from t_user;
+    </select>
+    <select id="getUserByName" resultType="com.mypro.book.pojo.User">
+        select * from t_user where username = #{username}
+    </select>
+</mapper>
